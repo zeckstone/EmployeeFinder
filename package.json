@@ -1,5 +1,5 @@
 {
-  "name": "bamazon",
+  "name": "employeefinder",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -7,10 +7,19 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zeckstone/EmployeeFinder.git"
+  },
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zeckstone/EmployeeFinder/issues"
+  },
+  "homepage": "https://github.com/zeckstone/EmployeeFinder#readme",
   "dependencies": {
-    "env": "0.0.2",
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "inquirer": "^6.2.0",
+    "path": "^0.12.7"
   }
 }

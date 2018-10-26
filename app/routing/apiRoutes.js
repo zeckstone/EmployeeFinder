@@ -1,19 +1,12 @@
-const express = require('express');
 
-const router = express.Router();
-
-const employeeList = require("../data/employees");
+const EmployeesList = require('../data/employees');
+const path = require('path');
 
 
+module.exports = function(app) {
+  
+    app.get('/api/employees', function(req, res) {
+    res.json(EmployeesList);
+  });
 
-router.get("/api/employees", function(req, res){
-    res.sendFile(path.join(__dirname, "../public/home.html"));
-});
-
-router.post("/api/employees", function(req, res){
-    res.sendFile(path.join(__dirname, "/../home.html"));
-});
-
-module.exports = router;
-
-//need a route to get all data and another for specific data
+};

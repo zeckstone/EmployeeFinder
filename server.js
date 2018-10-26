@@ -1,26 +1,23 @@
-// Imports express into our app and sets it up for use
+//imports express and path
 const express = require('express');
 const path = require('path');
-
 const app = express();
 
-// Defines a PORT for the server to listen for requests
+//Server listens on this port
 const PORT = 8080;
 
-// Sets up our server to parse our request body for usage
+//Parses requests 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Sets our server to use the public directory for static assets
+//Directs server to use "app/public" for static files
 app.use(express.static(path.join(__dirname, 'app/public')));
 
-// Routes
-// -----------------
+//Routes for sever requests
+require("./app/routing/apiRoutes")(app);
+require('./app/routing/htmlRoutes')(app);
 
-require('./routing/apiRoutes.js')(app);
-require('./routing/htmlRoutes.js')(app);
-
-// Starts our server on the predefined PORT
+//Initiates server listening on port
 app.listen(PORT, function(){
   console.log(`App is now listening on PORT ${PORT}`)
 })

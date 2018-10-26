@@ -13,3 +13,11 @@
 .btn1{
     color: beige;
 }
+
+.stitle, .ptitle{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.b1{
+    background-color: rgb(178, 212, 219);
+}

@@ -2,12 +2,12 @@ const express = require('express');
 
 const router = express.Router();
 
-const employeeList = require("../data/employees.js");
+const employeeList = require("../data/employees");
 
 
 
 router.get("/api/employees", function(req, res){
-    res.sendFile(path.join(__dirname, "/../home.html"));
+    res.sendFile(path.join(__dirname, "../public/home.html"));
 });
 
 router.post("/api/employees", function(req, res){

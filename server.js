@@ -1,33 +1,26 @@
-const express = require ('express');
-
-const path = require ("path");
+// Imports express into our app and sets it up for use
+const express = require('express');
+const path = require('path');
 
 const app = express();
 
-const PORT = process.env.PORT|| 8080;
+// Defines a PORT for the server to listen for requests
+const PORT = 8080;
 
+// Sets up our server to parse our request body for usage
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
-// app.use(express.static("app/public"));
+// Sets our server to use the public directory for static assets
+app.use(express.static(path.join(__dirname, 'app/public')));
 
-// const htmlRoutes = require("./routing/htmlRoutes");
+// Routes
+// -----------------
 
-// const apiRoutes = require("./routing/api-routes");
+require('./routing/apiRoutes.js')(app);
+require('./routing/htmlRoutes.js')(app);
 
-// app.use(apiRoutes);
-// app.use(htmlRoutes);
-
-app.get('/', function(req, res){
-    res.sendFile('./app/public/home.html')
-});
-
-
-app.use(express.static(path.join(__dirname, 'public')));
-
-app.get('/', function(req, res) {
-  res.sendFile(path.join(__dirname, '/app/public/survey.html'));
-});
-
+// Starts our server on the predefined PORT
 app.listen(PORT, function(){
-    console.log("Listening on PORT " + PORT);
-});
-
+  console.log(`App is now listening on PORT ${PORT}`)
+})
